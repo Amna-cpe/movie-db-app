@@ -1,0 +1,113 @@
+.card {
+  width: 300px;
+  height: 450px;
+  background-color: #000;
+  box-shadow: 0 5px 10px rgba(0,0,0,0.5);
+}
+.card .poster {
+  position: relative;
+  overflow: hidden;
+}
+
+.card .poster:before {
+  content: "";
+  position: absolute;
+  bottom: -160px;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(0deg,#000 50%,transparent);
+  z-index: 1;
+}
+.poster img {
+  width: 100%;
+}
+.details {
+  text-align: left;
+  margin-left: 20px;
+  position: absolute;
+  height: 60%;
+  width: 100%;
+  left: 0;
+  bottom: -110px;
+  transition: 0.5s;
+  z-index: 2;
+}
+.card:hover .details {
+bottom: 0;
+height: 85%;
+
+}
+.card:hover .poster:before{
+  bottom: 0;
+}
+.details h2 {
+  color: #fafafa;
+  font-size: 20px;
+}
+
+.rating{
+ position: relative;
+ padding: 5px 0;
+ margin-bottom: 5px;
+}
+
+
+.rating .fa{
+color:#f7f406;
+margin-right: 5px;
+font-size: 14px;
+}
+.rating span{
+    padding: 3px;
+}
+
+.tags{
+    margin-bottom: 5px;
+    position: relative;
+}
+
+.tags span{
+    padding: 2px 5px;
+    margin-right:10px;
+    display: inline-block;
+    border-radius: 4px;
+    margin-top: 10px;
+}
+.tags span.fantasy, .tags  span.Adventure{
+    background: #45df2e!important;
+    color:#fafafa;
+
+}
+
+.tags span.Drama {
+  background: #df2ec8 !important;
+  color:#fafafa;
+
+}
+
+
+.tags span.horror , .tags  span.Romance{
+    background: #bb1a15!important;
+    color:#fafafa;    
+}
+
+.tags span.default{
+  background: #5515bb;
+  color:#fafafa;    
+}
+
+.info{
+    color:#fafafa;
+
+}
+.info p{
+   font-size: 12px; 
+   width:80%;
+}
+
+
+
+
+
+
