@@ -27,7 +27,7 @@ function Genre({genre}) {
   }
   useEffect(() => {
     mapTogenreString(genre)
-  }, [])
+  })
 
   return <span className={`default ${name}`}>{name?name:"shen"}</span>;
 }

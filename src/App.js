@@ -32,7 +32,7 @@ function App() {
     window.addEventListener("scroll", infiniteScroll)
     fetchData(page)
 
-  }, []);
+  });
 
  console.log("the page ",movies)
   return (
