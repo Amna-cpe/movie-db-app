@@ -8,8 +8,9 @@ function App() {
   let newPage = 1;
 
   const infiniteScroll = () => {
+    //DESKTOP BROWSER
     if (
-      window.innerHeight + document.documentElement.scrollTop + 0.4 >
+      window.innerHeight + document.documentElement.scrollTop + 0.4 >=
       document.documentElement.offsetHeight
     ) {
       newPage = newPage + 1;
