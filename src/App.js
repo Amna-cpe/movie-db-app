@@ -18,23 +18,21 @@ function App() {
       fetchData(newPage);
     }
   };
-  const fetchData =  (num) => {
-   
+  const fetchData =  (num) => {  
     
-    const API_KEY = process.env.REACT_APP_API_KEY 
+    const API_KEY = process.env.REACT_APP_API_KEY;
     const url = `https://api.themoviedb.org/3/movie/top_rated?api_key=${API_KEY}&page=${num}`
-      // fetch(url)
-      // .then((res) => res.json())
-      // .then((data) =>setMovies(presMovies=>[...presMovies,...data.results]))
-      // console.log("fetching page",num)
+      fetch(url)
+      .then((res) => res.json())
+      .then((data) =>setMovies(presMovies=>[...presMovies,...data.results]))
+    
      
   };
 
   useEffect(() => {
     window.addEventListener("scroll", infiniteScroll)
     fetchData(page)
-
-  });
+  },[]);
 
  console.log("the page ",movies)
   return (
