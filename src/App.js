@@ -19,14 +19,14 @@ function App() {
       fetchData(newPage);
     }
   };
-  const fetchData =  (num) => {  
+  const fetchData =  async (num) => {  
     
     console.log("fetching for the ", num)
-    const API_KEY = process.env.REACT_APP_API_KEY 
+    const API_KEY = process.env.REACT_APP_API_KEY || "1cf4e2cd4793c0319a6de5378ced96b3"
     const url = `https://api.themoviedb.org/3/movie/top_rated?api_key=${API_KEY}&page=${num}`
-       fetch(url)
-      .then((res) => res.json())
-      .then((data) =>setMovies(presMovies=>[...presMovies,...data.results]))
+    const res = await fetch(url)
+    const data = await res.json()
+    setMovies(presMovies => [...presMovies , ...data.results])
     
      
   };
