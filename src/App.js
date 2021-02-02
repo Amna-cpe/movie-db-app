@@ -5,28 +5,25 @@ import axios from "axios";
 
 function App() {
   const [movies, setMovies] = useState([]);
-  const [page, setPages] = useState(1);
+  let newPage = 1;
 
   const infiniteScroll = () => {
-
     if (
-      window.innerHeight + document.documentElement.scrollTop+0.4 >
+      window.innerHeight + document.documentElement.scrollTop + 0.4 >
       document.documentElement.offsetHeight
     ) {
-      console.log("srcolling effext ❤");
-      let newPage = page;
       newPage = newPage + 1;
-      setPages(page + 1);
       fetchData(newPage);
     }
   };
   const fetchData = async (num) => {
     console.log("fetching for the ", num);
-    const API_KEY = process.env.REACT_APP_API_KEY 
+    const API_KEY =
+      process.env.REACT_APP_API_KEY 
     const url = `https://api.themoviedb.org/3/movie/top_rated?api_key=${API_KEY}&page=${num}`;
     axios
       .get(url)
-      .then((res) =>res.data)
+      .then((res) => res.data)
       .then((data) =>
         setMovies((presMovies) => [...presMovies, ...data.results])
       );
@@ -34,10 +31,10 @@ function App() {
 
   useEffect(() => {
     window.addEventListener("scroll", infiniteScroll);
-    fetchData(page);
+    //the first time
+    fetchData(1);
   }, []);
 
-  console.log("the movies length ", movies.length);
   return (
     <div className="App">
       <header>
