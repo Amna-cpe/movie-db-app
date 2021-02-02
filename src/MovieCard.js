@@ -11,12 +11,7 @@ function MovieCard({ title, overview, img, generes, release, vote }) {
   }else if(fiveStarRating < (parseInt(fiveStarRating) + 0.5)){
     fiveStarRating = Math.floor(fiveStarRating)
   }
-
-
-
-
-
-
+  
   return (
     <div className="card">
       <div className="poster">

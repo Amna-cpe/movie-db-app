@@ -1,35 +1,54 @@
-html,*{
+html,
+* {
   margin: 0;
   padding: 0;
 }
-body{
-  background-color:#191b22;
+body {
+  background-color: #191b22;
   color: #fafafa;
-  font-family: 'Yusei Magic', sans-serif;
-
+  font-family: "Yusei Magic", sans-serif;
 }
 
-
-.App{
+.App {
   margin: 0 auto;
-  
+
   text-align: center;
   padding: 40px;
 }
 
-.movies-wrapper{
+.movies-wrapper {
   padding: 20px;
-  
-  margin-top: 40px;
+
+  margin-top: 70px;
 }
 
-.movies-grid{
+.movies-grid {
   padding: 20px;
- 
+
   display: grid;
-  grid-template-columns: repeat(auto-fit,330px);
-  gap:45px;
+  grid-template-columns: repeat(auto-fit, 330px);
+  gap: 45px;
   justify-content: center;
   align-items: center;
+}
+
+header{
+  width: 100%;
+  position: fixed;
+  top: 0;
+  z-index: 1000;
+  background-color: #191b22;
+  padding: 10px;
+  height: 20%;
+}
+
+.multi-select {
+  width: 90%;
+  position: fixed;
+  color: #191b22;
  
+  margin-top: 10px;
+  z-index: 1000;
+
+
 }
