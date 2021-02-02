@@ -8,10 +8,16 @@ function App() {
   let newPage = 1;
 
   const infiniteScroll = () => {
+
+    
+
     //DESKTOP BROWSER
     if (
-      window.innerHeight + document.documentElement.scrollTop + 0.4 >=
-      document.documentElement.offsetHeight
+     ( window.innerHeight + document.documentElement.scrollTop + 0.4 >=
+      document.documentElement.offsetHeight )
+      ||
+      document.documentElement.scrollTop  >=  document.documentElement.height - window.height - 100
+
     ) {
       newPage = newPage + 1;
       fetchData(newPage);
@@ -20,7 +26,7 @@ function App() {
   const fetchData =  (num) => {
     console.log("fetching for the ", num);
     const API_KEY =
-      process.env.REACT_APP_API_KEY 
+      process.env.REACT_APP_API_KEY
     const url = `https://api.themoviedb.org/3/movie/top_rated?api_key=${API_KEY}&page=${num}`;
     axios
       .get(url)
