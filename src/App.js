@@ -16,7 +16,7 @@ function App() {
       fetchData(newPage);
     }
   };
-  const fetchData = async (num) => {
+  const fetchData =  (num) => {
     console.log("fetching for the ", num);
     const API_KEY =
       process.env.REACT_APP_API_KEY 
@@ -31,6 +31,7 @@ function App() {
 
   useEffect(() => {
     window.addEventListener("scroll", infiniteScroll);
+    window.addEventListener("touchmove", infiniteScroll);
     //the first time
     fetchData(1);
   }, []);
