@@ -12,6 +12,7 @@ function App() {
       window.innerHeight + document.documentElement.scrollTop ===
       document.documentElement.offsetHeight
     ) {
+      console.log("srcolling effext ❤")
       let newPage = page;
       newPage=newPage+1;      
       setPages(page+1);
@@ -20,9 +21,10 @@ function App() {
   };
   const fetchData =  (num) => {  
     
-    const API_KEY = process.env.REACT_APP_API_KEY;
+    console.log("fetching for the ", num)
+    const API_KEY = process.env.REACT_APP_API_KEY 
     const url = `https://api.themoviedb.org/3/movie/top_rated?api_key=${API_KEY}&page=${num}`
-      fetch(url)
+       fetch(url)
       .then((res) => res.json())
       .then((data) =>setMovies(presMovies=>[...presMovies,...data.results]))
     
@@ -34,7 +36,7 @@ function App() {
     fetchData(page)
   },[]);
 
- console.log("the page ",movies)
+ console.log("the movies length ",movies.length)
   return (
     <div className="App">
       <header>
