@@ -18,14 +18,15 @@ function App() {
       fetchData(newPage);
     }
   };
-  const fetchData =  async(num) => {
+  const fetchData =  (num) => {
    
     
     const API_KEY = process.env.REACT_APP_API_KEY 
     const url = `https://api.themoviedb.org/3/movie/top_rated?api_key=${API_KEY}&page=${num}`
-    await fetch(url)
+      fetch(url)
       .then((res) => res.json())
       .then((data) =>setMovies(presMovies=>[...presMovies,...data.results]))
+      console.log("fetching page",num)
      
   };
 
