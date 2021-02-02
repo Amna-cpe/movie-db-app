@@ -22,7 +22,7 @@ function App() {
   const fetchData =  async (num) => {  
     
     console.log("fetching for the ", num)
-    const API_KEY = process.env.REACT_APP_API_KEY || "1cf4e2cd4793c0319a6de5378ced96b3"
+    const API_KEY = process.env.REACT_APP_API_KEY 
     const url = `https://api.themoviedb.org/3/movie/top_rated?api_key=${API_KEY}&page=${num}`
     const res = await fetch(url)
     const data = await res.json()
