@@ -1,42 +1,43 @@
 import "./App.css";
 import MovieCard from "./MovieCard";
 import React, { useEffect, useState } from "react";
+import axios from "axios";
 
 function App() {
   const [movies, setMovies] = useState([]);
   const [page, setPages] = useState(1);
 
-  const infiniteScroll =  ()=>{
-    // End of the document reached?
+  const infiniteScroll = () => {
+
     if (
-      window.innerHeight + document.documentElement.scrollTop ===
+      window.innerHeight + document.documentElement.scrollTop+0.4 >
       document.documentElement.offsetHeight
     ) {
-      console.log("srcolling effext ❤")
+      console.log("srcolling effext ❤");
       let newPage = page;
-      newPage=newPage+1;      
-      setPages(page+1);
+      newPage = newPage + 1;
+      setPages(page + 1);
       fetchData(newPage);
     }
   };
-  const fetchData =  async (num) => {  
-    
-    console.log("fetching for the ", num)
+  const fetchData = async (num) => {
+    console.log("fetching for the ", num);
     const API_KEY = process.env.REACT_APP_API_KEY 
-    const url = `https://api.themoviedb.org/3/movie/top_rated?api_key=${API_KEY}&page=${num}`
-    const res = await fetch(url)
-    const data = await res.json()
-    setMovies(presMovies => [...presMovies , ...data.results])
-    
-     
+    const url = `https://api.themoviedb.org/3/movie/top_rated?api_key=${API_KEY}&page=${num}`;
+    axios
+      .get(url)
+      .then((res) =>res.data)
+      .then((data) =>
+        setMovies((presMovies) => [...presMovies, ...data.results])
+      );
   };
 
   useEffect(() => {
-    window.addEventListener("scroll", infiniteScroll)
-    fetchData(page)
-  },[]);
+    window.addEventListener("scroll", infiniteScroll);
+    fetchData(page);
+  }, []);
 
- console.log("the movies length ",movies.length)
+  console.log("the movies length ", movies.length);
   return (
     <div className="App">
       <header>
